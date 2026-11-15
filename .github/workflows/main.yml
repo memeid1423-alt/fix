@@ -1,16 +1,12 @@
-yaml
 name: Download NeoForge
-on:
-  workflow_dispatch:
+on: [workflow_dispatch]
 
 jobs:
   download:
     runs-on: ubuntu-latest
     steps:
-      - name: Download jar
-        run: curl -L -o neoforge-21.1.266-universal.jar https://neoforged.net
-      - name: Upload
-        uses: actions/upload-artifact@v4
+      - run: curl -L -o neoforge-21.1.266-universal.jar https://neoforged.net
+      - uses: actions/upload-artifact@v4
         with:
           name: neoforge-universal
           path: neoforge-21.1.266-universal.jar
